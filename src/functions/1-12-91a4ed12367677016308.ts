@@ -8,7 +8,7 @@ const testIdentity2 => {};
 export async function serviceBusQueueTrigger(message: unknown, context: InvocationContext): Promise<void> {
     context.log('Service bus queue function processed message:', message);
     const client = df.getClient(context);
-    const instanceId: string = await client.startNew("1-12-91a4ed12367677016308", message);
+    const instanceId: string = await client.startNew("testIdentity2", message);
     context.log(`Started orchestration with ID = '${instanceId}'.`);
 };
 app.serviceBusQueue('1-12-91a4ed12367677016308', {
